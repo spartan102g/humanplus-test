@@ -1,0 +1,28 @@
+{
+    "name": "humanplus",
+    "version": "1.0.0",
+    "description": "app de humanplus ",
+    "author": "spartan102",
+    "private": true,
+    "scripts": {
+        "dev": "cross-env NODE_ENV=development nodemon server/index.js --watch server",
+        "start": "nuxt generate && cross-env NODE_ENV=production node server/index.js",
+        "generate": "nuxt generate"
+    },
+    "dependencies": {
+        "axios": "^0.19.2",
+        "cross-env": "^5.2.0",
+        "express": "^4.16.4",
+        "mongoose": "^5.9.14",
+        "morgan": "^1.10.0",
+        "nuxt": "^2.0.0"
+    },
+    "devDependencies": {
+        "@mdi/font": "^5.3.45",
+        "@nuxtjs/vuetify": "^1.0.0",
+        "eslint-config-prettier": "^6.10.0",
+        "eslint-plugin-prettier": "^3.1.2",
+        "nodemon": "^1.18.9",
+        "prettier": "^1.19.1"
+    }
+}
