@@ -26,7 +26,7 @@ export default {}
     background-position: center;
     transition: all 1s ease-in-out;
 
-   /*background-image: url('../../assets/img1.jpg');*/
+   background-image: url('../../assets/img1.jpg');
     animation: banner 15s infinite linear;
 }
 .banner__contenido {
@@ -62,7 +62,7 @@ export default {}
     background: #fff;
     color: black;
 }
-/*@keyframes banner {
+@keyframes banner {
     0% {
         background-image: url('../../assets/img1.jpg');
     }
@@ -81,7 +81,7 @@ export default {}
     100% {
         background-image: url('../../assets/img3.jpg');
     }
-}*/
+}
 
 @media (min-width: 600px) {
     .banner {
