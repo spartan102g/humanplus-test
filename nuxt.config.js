@@ -1,4 +1,3 @@
-const colors = require('vuetify/es5/util/colors').default
 
 module.exports = {
     mode: 'universal',
@@ -44,7 +43,6 @@ module.exports = {
     /*
      ** Nuxt.js dev-modules
      */
-    buildModules: ['@nuxtjs/vuetify'],
     /*
      ** Nuxt.js modules
      */
@@ -53,32 +51,7 @@ module.exports = {
      ** vuetify module configuration
      ** https://github.com/nuxt-community/vuetify-module
      */
-    vuetify: {
-        defaultAssets: {
-            font: true,
-            icons: 'md'
-        },
-        icons: {
-            iconfont: 'md'
-        },
-        customVariables: ['~/assets/variables.scss'],
-        theme: {
-            dark: true,
-            themes: {
-                dark: {
-                    primary: colors.blue.darken2,
-                    accent: colors.grey.darken3,
-                    secondary: colors.amber.darken3,
-                    info: colors.teal.lighten1,
-                    warning: colors.amber.base,
-                    error: colors.deepOrange.accent4,
-                    success: colors.green.accent3
-                }
-            }
-        }
-    },
-    /*
-     ** Build configuration
+     /** Build configuration
      */
     build: {
         /*
