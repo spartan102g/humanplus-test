@@ -5,7 +5,7 @@ const { Nuxt, Builder } = require('nuxt')
 const app = express()
 
 mongoose
-    .connect('mongodb://localhost/dtabase', {
+    .connect('mongodb://human:human264@ds263078.mlab.com:63078/huma', {
         useNewUrlParser: true,
         useUnifiedTopology: true
     })

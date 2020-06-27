@@ -12,7 +12,7 @@
             @cerrarSesion="usuarioConectado = false"
             v-bind:usuario_conectado="usuarioConectado"
         ></BarraLateral>
-        <nuxt />
+        <nuxt v-bind:usuario_conectado="usuarioConectado"/>
     </div>
 </template>
 
