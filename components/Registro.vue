@@ -165,7 +165,7 @@ export default {
 
       if (!this.nombreUsuarioVacio) {
         fetch(
-          "${env.endpoint}/api/usuarios/comprovarNombreUsuario/" +
+          "/api/usuarios/comprovarNombreUsuario/" +
             this.usuario.nombreUsuario,
           {
             method: "GET",
@@ -179,6 +179,8 @@ export default {
           .then(
             (data) =>
               (this.nombreUsuarioEncontradoEnBD = data.status == "encontrado")
+              
+              
           );
       }
 
@@ -198,7 +200,7 @@ export default {
       );
       if (!this.correoVacio) {
         fetch(
-          "${env.endpoint}/api/usuarios/comprovarCorreo/" + this.usuario.correo,
+          "/api/usuarios/comprovarCorreo/" + this.usuario.correo,
           {
             method: "GET",
             headers: {
@@ -244,7 +246,7 @@ export default {
   },
   methods: {
     crearUsuario() {
-      fetch("${env.endpoint}/api/usuarios/", {
+      fetch("/api/usuarios/", {
         method: "POST",
         body: JSON.stringify(this.usuario),
         headers: {
