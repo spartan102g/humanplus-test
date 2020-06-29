@@ -2,7 +2,10 @@ const express = require('express')
 const consola = require('consola')
 const mongoose = require('mongoose')
 const { Nuxt, Builder } = require('nuxt')
+
 const app = express()
+const http = require('http').Server(app)
+const io = require('socket.io')(http)
 
 mongoose
     .connect('mongodb://human:human264@ds263078.mlab.com:63078/huma', {
@@ -24,6 +27,12 @@ app.use('/api/usuarios', require('../src/rutas/usuarios'))
 const config = require('../nuxt.config.js')
 config.dev = process.env.NODE_ENV !== 'production'
 
+io.on('connection',function (socket) {
+    socket.on('stream',function (image) {
+        socket.broadcast.emit('stream',image)
+    })
+})
+
 async function start() {
     // Init Nuxt.js
     const nuxt = new Nuxt(config)
@@ -41,7 +50,7 @@ async function start() {
     app.use(nuxt.render)
 
     // Listen the server
-    app.listen(port, host)
+    http.listen(port, host)
     consola.ready({
         message: `Servidor abierto en http://${host}:${port}`,
         badge: true
