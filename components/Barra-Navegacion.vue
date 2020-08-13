@@ -18,31 +18,18 @@
                 <div class="navegacion__logo">
                     <img src="../assets/humanplus-logo.png" />
                 </div>
-                <div style="display: inline" v-if="!usuario_conectado">
-                    <NuxtLink to="/ingreso" class="navegacion__boton "
-                        ><span class="icon-enter" /> Ingreso</NuxtLink
+                <div style="display: inline">
+                    <NuxtLink to="/" class="navegacion__boton "
+                        ><span class="" /> .</NuxtLink
                     >
-                    <NuxtLink to="/registro" class="navegacion__boton"
-                        ><span class="icon-user-tie" /> Registro</NuxtLink
+                    <NuxtLink to="/app" class="navegacion__boton "
+                        ><span class="icon-user-tie" /> App</NuxtLink
                     >
                     <div @click="desactivarMenu()">
                         <NuxtLink
-                            to="/ingreso"
+                            to="/app"
                             class="navegacion__boton-ingreso"
-                            >Ingresar <span class="icon-user-tie"
-                        /></NuxtLink>
-                    </div>
-                </div>
-                <div style="display: inline" v-else>
-                    <div @click="cerrarSesion()" class="navegacion__boton">
-                        <span class="icon-enter" /> Cerrar sesion
-                    </div>
-                    <NuxtLink to="/cuenta" class="navegacion__boton"
-                        ><span class="icon-user-tie" /> Cuenta</NuxtLink
-                    >
-                    <div @click="desactivarMenu()">
-                        <NuxtLink to="/cuenta" class="navegacion__boton-ingreso"
-                            >Cuenta <span class="icon-user-tie"
+                            >App <span class="icon-user-tie"
                         /></NuxtLink>
                     </div>
                 </div>

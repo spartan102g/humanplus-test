@@ -9,7 +9,10 @@
                     <v-spacer></v-spacer>
                     correo: {{ usuario.correo }}
                     <v-spacer></v-spacer>
-                    activado: {{ usuario.activado }}
+                    clave: {{ usuario.clave }}
+
+                    
+
                 </v-card-text>
                 <v-card-actions>
                     <v-spacer></v-spacer>

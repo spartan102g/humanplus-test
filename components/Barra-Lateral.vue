@@ -12,21 +12,7 @@
                 </div>
             </NuxtLink>
 
-            <div
-                v-if="!usuario_conectado"
-                class="barra-lateral__login"
-                @click="desactivarBarra()"
-            >
-                <NuxtLink to="/ingreso" class="login__boton">Ingreso</NuxtLink>
-                <NuxtLink to="/registro" class="login__boton"
-                    >Registro</NuxtLink
-                >
-            </div>
-            <div v-else class="barra-lateral__login" @click="desactivarBarra()">
-                <div @click="cerrarSesion()" class="login__boton">
-                    Cerrar sesion
-                </div>
-            </div>
+            
             <div class="barra-lateral__pie">© 2020 Human+</div>
         </div>
     </div>

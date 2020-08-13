@@ -1,9 +1,9 @@
 <template>
   <div class="registro">
     <div class="ventana">
-      <NuxtLink to="/" class="icono">
+      <div to="/" class="icono" @click="cerrar()">
         <span class="icon-cross"></span>
-      </NuxtLink>
+      </div>
       <h1 class="ventana__titulo">Registro</h1>
 
       <div class="ventana__contenedor">
@@ -245,6 +245,9 @@ export default {
     },
   },
   methods: {
+    cerrar(){
+      this.$emit('cerrar')
+    },
     crearUsuario() {
       fetch("/api/usuarios/", {
         method: "POST",
@@ -287,6 +290,7 @@ export default {
   },
 };
 </script>
+
 
 <style>
 .texto-gris {

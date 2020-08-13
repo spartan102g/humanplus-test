@@ -12,7 +12,7 @@
             @cerrarSesion="usuarioConectado = false"
             v-bind:usuario_conectado="usuarioConectado"
         ></BarraLateral>
-        <nuxt v-bind:usuario_conectado="usuarioConectado"/>
+        <nuxt v-bind:usuario_conectado="usuarioConectado" v-on:ingreso="usuarioConectado = true"/>
     </div>
 </template>
 
@@ -20,13 +20,14 @@
 import BarraNavegacion from '../components/Barra-Navegacion'
 import BarraLateral from '../components/Barra-Lateral'
 
+import uconectado from '../components/global'
 class Usuario {}
 
 export default {
     data() {
         return {
             BarraLateral: false,
-            usuarioConectado: false
+            usuarioConectado: uconectado
         }
     },
     components: {

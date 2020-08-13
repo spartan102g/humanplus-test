@@ -1,9 +1,9 @@
 <template>
     <div class="ingreso">
         <div class="ventana">
-            <NuxtLink to="/" class="icono">
+            <div @click="cerrar()" class="icono">
                 <span class="icon-cross"> </span>
-            </NuxtLink>
+            </div>
             <h1 class="ventana__titulo">Ingreso</h1>
             <div>
                 <div class="ventana__contenedor">
@@ -12,6 +12,7 @@
                             class="ventana__input"
                             type="text"
                             placeholder="Usuario"
+                            v-model="usuario"
                         />
                     </div>
                     <div class="ventana--center">
@@ -19,27 +20,84 @@
                             class="ventana__input"
                             type="password"
                             placeholder="Contraseña"
+                            v-model="clave"
+                            
                         />
                     </div>
-                    <div class="ventana--center">
-                        <button class="ventana__boton">Entrar</button>
+                    <div v-if="datos" class="rojo">Error al ingresar datos</div>
+                    <div  class="ventana--center">
+                        
+                        <button class="ventana__boton desactivado" @click="comprovacion()">Entrar</button>
                     </div>
                     <div class="ventana--center">
                         ¿No tienes cuenta?
-                        <NuxtLink to="/registro" style="color: blue">
-                            Registrate</NuxtLink
-                        >
+                        
+                            <div  to="/registro" style="color: blue" @click="registro()">
+                                Registrate</div
+                            >
+                        
                     </div>
                 </div>
             </div>
         </div>
     </div>
 </template>
-
 <script>
-export default {}
+export default {
+    data(){
+        return{
+            usuario: '',
+            clave: '',
+            datos: false
+        }
+    },
+    methods:{
+        cerrar(){
+            this.$emit('cerrar')
+        },
+        registro(){
+            this.$emit('registro')
+        },
+        comprovacion(){
+            
+            fetch(
+          "/api/usuarios/ingreso/" +
+            this.usuario +"@"+ this.clave,
+          {
+            method: "GET",
+            headers: {
+              Accept: "application/json",
+              "Content-type": "application/json",
+            },
+          }
+        )
+          .then((res) => res.json())
+          .then((data)=> {
+              
+              if (data.id[0] != undefined) {
+                  
+                this.$emit('ingreso',data.id[0]._id)
+                this.datos = false
+                this.$router.push('app')               
+
+                  
+            }else{
+                this.datos = true
+            }
+
+          });
+              
+              
+        },
+    }
+}
+
+
 </script>
 <style>
+.rojo{
+    color: red;
+}
 .icono {
     position: relative;
 
@@ -89,12 +147,17 @@ export default {}
 .ventana__boton {
     display: block;
     font-size: 20px;
-    width: 90%;
+    
+    margin: 0 auto;
     padding: 5px 40px;
     text-align: justify;
     margin: 20px 0;
     border: 1px solid black;
 }
+.desactivado{
+    color: gray;
+}
+
 </style>
 
 <style scoped>
